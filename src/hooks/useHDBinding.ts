@@ -1,4 +1,4 @@
-const {useEffect, useState} = require("react");
+import {useEffect, useState} from 'react';
 
 export function useHDBinding(hdValue: any) {
     const [value, setValue] = useState(hdValue.value);
