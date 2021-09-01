@@ -14,9 +14,9 @@ let comp = hd.component`
 system.addComponent(comp)
 system.update();
 
-export function useDoubleNumber() {
-    const [a, setA] = useHDBinding(comp.vs.a.value);
-    const [b,] = useHDBinding(comp.vs.b.value);
+export function useDoubleNumber(): [number, number, (newValue: number) => void] {
+    const [a, setA] = useHDBinding<number>(comp.vs.a.value);
+    const [b,] = useHDBinding<number>(comp.vs.b.value);
 
     return [a, b, setA]
 }

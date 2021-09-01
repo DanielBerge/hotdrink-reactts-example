@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
+import {HDValue} from "hotdrink";
 
-export function useHDBinding(hdValue: any) {
-    const [value, setValue] = useState(hdValue.value);
+export function useHDBinding<T>(hdValue: HDValue<T>): [T, (newValue: T) => void] {
+    const [value, setValue] = useState<T>(hdValue.value);
 
     useEffect(() => {
         hdValue.subscribe({
@@ -11,7 +12,7 @@ export function useHDBinding(hdValue: any) {
                 }
             }
         });
-    });
+    }, [hdValue]);
 
-    return [value, (newValue: any) => hdValue.set(newValue)];
+    return [value, (newValue: T) => hdValue.set(newValue)];
 }

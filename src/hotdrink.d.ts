@@ -13,5 +13,11 @@ declare module "hotdrink" {
         vs: any;
     }
 
+    interface HDValue<T> {
+        value: any;
+        subscribe({next: any});
+        set(value: T)
+    }
+
     export var hd: HotDrink;
 }
