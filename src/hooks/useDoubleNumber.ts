@@ -11,7 +11,7 @@ let comp = hd.component`
     }
   `
 
-system.addComponent(comp);
+system.addComponent(comp)
 system.update();
 
 export function useDoubleNumber() {
